@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Adicionar Carro</h1>
+<form action="{% url 'build_car' person_id %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <div class="col-auto">
+          <label for="vehicle_name" class="col-form-label">Nome do veiculo</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" id="vehicle_name" name="vehicle_name" class="form-control" aria-describedby="name", placeholder="Mobi, Corsa, HB20...">
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="category"> Categoria </label>
+      <select class="form-select" name="category" aria-label="Categoria">
+        <option name="category" value="hatch" selected>Hatch</option>
+        <option name="category" value="sedan">Sedan</option>
+        <option name="category" value="conversível">Conversível</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="col-auto">
+        <label for="brand" class="col-form-label">Marca</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" id="brand" name="brand" class="form-control" aria-describedby="category" placeholder="Chevrolet, Ford, Honda...">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="color">Cor</label>
+      <select class="form-select" name="color" aria-label="Categoria">
+        <option value="amarelo" selected>Amarelo</option>
+        <option value="azul">Azul</option>
+        <option value="cinza">Cinza</option>
+      </select>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-success">Adicionar carro</button>
+</form>
+    
+{% endblock content %}
+
+    

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Criar usuário</h1>
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <div class="col-auto">
+          <label for="name" class="col-form-label">Nome</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" id="name" name="name" class="form-control" aria-describedby="name" value="{{person.name}}">
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="col-auto">
+          <label for="surname" class="col-form-label">Sobrenome</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" id="surname" name="surname" class="form-control" aria-describedby="surname" value="{{person.surname}}">
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="col-auto">
+          <label for="age" class="col-form-label">Idade</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" id="age" name="age" class="form-control" aria-describedby="age" value="{{person.age}}">
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="col-auto">
+          <label for="cpf" class="col-form-label">CPF</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" id="cpf" name="cpf" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" class="form-control" aria-describedby="cpf" value="{{person.cpf}}">
+        </div>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-success">Criar Usuário</button>
+</form>
+    
+{% endblock content %}
+
+    
